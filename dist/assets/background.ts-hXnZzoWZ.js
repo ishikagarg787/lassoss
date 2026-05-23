@@ -1,0 +1,1 @@
+chrome.action.onClicked.addListener(async e=>{e.id&&chrome.tabs.sendMessage(e.id,{type:`START_LASSO`})}),chrome.runtime.onMessage.addListener((e,t,n)=>{if(e.type===`CAPTURE_TAB`)return chrome.tabs.captureVisibleTab({format:`png`},e=>{n({success:!0,dataUrl:e})}),!0});
